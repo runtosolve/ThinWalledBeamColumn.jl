@@ -1,0 +1,4 @@
+name = "ThinWalledBeamColumn"
+uuid = "79be238d-76c4-453b-a7f7-71368c01feb5"
+authors = ["Cris Moen <cris.moen@runtosolve.com>"]
+version = "0.1.0"
