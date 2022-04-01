@@ -343,7 +343,7 @@ struct Dof
  end
  
  
- function solve(z, A, Ix, Iy, Io, J, Cw, E, G, ax, ay, kx, ky, kϕ, hx, hy, qx, qy, P, supports, end_boundary_conditions)
+ function solve(z, A, Ix, Iy, Io, J, Cw, E, G, ax, ay, kx, ky, kϕ, hx, hy, qx, qy, P, end_boundary_conditions, supports)
  
     #Define inputs.
     inputs = Inputs(z, A, Ix, Iy, Io, J, Cw, E, G, ax, ay, kx, ky, kϕ, hx, hy, qx, qy, P, end_boundary_conditions, supports)
