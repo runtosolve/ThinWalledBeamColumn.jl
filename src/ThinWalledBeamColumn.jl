@@ -228,7 +228,7 @@ struct Dof
  end
  
  
- function governing_equations(z, A, Ix, Iy, Io, J, Cw, E, G, ax, ay, kx, ky, kϕ, hx, hy, qx, qy, P, supports, end_boundary_conditions)
+ function governing_equations(z, A, Ix, Iy, Io, J, Cw, E, G, ax, ay, kx, ky, kϕ, hx, hy, qx, qy, P, end_boundary_conditions, supports)
  
      #The equilbrium equations come from Plaut and Moen (2020) https://www.sciencedirect.com/science/article/abs/pii/S0263823120307758 without imperfection terms and with additional beam terms from Plaut and Moen(2019) https://cloud.aisc.org/SSRC/2020/43PlautandMoen2020SSRC.pdf.
  
@@ -346,13 +346,13 @@ struct Dof
  function solve(z, A, Ix, Iy, Io, J, Cw, E, G, ax, ay, kx, ky, kϕ, hx, hy, qx, qy, P, supports, end_boundary_conditions)
  
     #Define inputs.
-    inputs = Inputs(z, A, Ix, Iy, Io, J, Cw, E, G, ax, ay, kx, ky, kϕ, hx, hy, qx, qy, P, supports, end_boundary_conditions)
+    inputs = Inputs(z, A, Ix, Iy, Io, J, Cw, E, G, ax, ay, kx, ky, kϕ, hx, hy, qx, qy, P, end_boundary_conditions, supports)
  
     end_boundary_conditions::Array{String} 
     supports::Vector{Tuple{Float64, String, String, String}} 
  
     #Set up solution matrices from governing equations.
-    equations = governing_equations(z, A, Ix, Iy, Io, J, Cw, E, G, ax, ay, kx, ky, kϕ, hx, hy, qx, qy, P, supports, end_boundary_conditions)
+    equations = governing_equations(z, A, Ix, Iy, Io, J, Cw, E, G, ax, ay, kx, ky, kϕ, hx, hy, qx, qy, P, end_boundary_conditions, supports)
  
     #Define the number of nodes along the beam.
     num_nodes = length(z)
