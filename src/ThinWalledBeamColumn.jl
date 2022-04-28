@@ -348,8 +348,8 @@ struct Dof
     #Define inputs.
     inputs = Inputs(z, A, Ix, Iy, Io, J, Cw, E, G, ax, ay, kx, ky, kϕ, hx, hy, qx, qy, P, end_boundary_conditions, supports)
  
-    end_boundary_conditions::Array{String} 
-    supports::Vector{Tuple{Float64, String, String, String}} 
+    # end_boundary_conditions::Array{String} 
+    # supports::Vector{Tuple{Float64, String, String, String}} 
  
     #Set up solution matrices from governing equations.
     equations = governing_equations(z, A, Ix, Iy, Io, J, Cw, E, G, ax, ay, kx, ky, kϕ, hx, hy, qx, qy, P, end_boundary_conditions, supports)
