@@ -1,6 +1,6 @@
 module ThinWalledBeamColumn
 
-using DiffEqOperators: CenteredDifference
+using DiffEqOperators
 using LinearAlgebra
 using NLsolve
 
@@ -85,7 +85,7 @@ struct Dof
     #Calculate the 4th derivative operator.
     nth_derivative = 4
     derivative_order = 2
-    Azzzz = CenteredDifference(nth_derivative, derivative_order, dz, num_nodes)
+    Azzzz = DiffEqOperators.CenteredDifference(nth_derivative, derivative_order, dz, num_nodes)
  
     #Convert the operator to a matrix.
     Azzzz = Array(Azzzz)   
@@ -96,7 +96,7 @@ struct Dof
     #Calculate the 2nd derivative operator.
     nth_derivative = 2
     derivative_order = 2
-    Azz = CenteredDifference(nth_derivative, derivative_order, dz, num_nodes)
+    Azz = DiffEqOperators.CenteredDifference(nth_derivative, derivative_order, dz, num_nodes)
     Azz = Array(Azz)   
     Azz = Azz[:,2:end-1]  
  
